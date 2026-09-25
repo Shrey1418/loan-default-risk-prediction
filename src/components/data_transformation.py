@@ -62,11 +62,9 @@ class DataTransformation:
             test_df = pd.read_csv(test_path)
             logging.info(f"Read train data with shape {train_df.shape}, test data with shape {test_df.shape}")
 
-            # Cleaning — pass the actual dataframes, not the file paths
             train_df = self.clean_data(train_df)
             test_df = self.clean_data(test_df)
 
-            # Feature engineering — same, pass the dataframes
             train_df = self.engineer_features(train_df)
             test_df = self.engineer_features(test_df)
 
@@ -92,7 +90,12 @@ class DataTransformation:
             X_test_transformed = preprocessor.transform(X_test)
             logging.info("Preprocessing pipeline fit on train data and applied to test data")
 
-            # SMOTE — training data only, after the split, never before (prevents test-set leakage)
+            # Capture real output column names — OneHotEncoder expands EDUCATION/MARRIAGE/SEX/
+            # Credit_Limit_Tier into multiple columns (e.g. cat_pipeline__EDUCATION_1,
+            # cat_pipeline__EDUCATION_2, ...), so this list is longer than the input feature list.
+            feature_names = preprocessor.get_feature_names_out()
+            logging.info(f"Preprocessor output has {len(feature_names)} columns")
+
             smote = SMOTE(random_state=42)
             X_train_resampled, y_train_resampled = smote.fit_resample(X_train_transformed, y_train)
             logging.info(
@@ -105,7 +108,7 @@ class DataTransformation:
             train_arr = np.c_[X_train_resampled, np.array(y_train_resampled)]
             test_arr = np.c_[X_test_transformed, np.array(y_test)]
 
-            return train_arr, test_arr, self.preprocessor_obj_path
+            return train_arr, test_arr, self.preprocessor_obj_path, feature_names
 
         except Exception as e:
             logging.error("Data transformation failed")

@@ -54,3 +54,40 @@
 [2026-09-25 12:25:19,756] 13 root - INFO - Object saved at artifacts/model.pkl
 [2026-09-25 12:25:19,756] 41 root - INFO - Model saved at artifacts/model.pkl
 [2026-09-25 12:25:19,757] 13 root - INFO - Triang pipeline completed sucessfuly, final PR-AUC: 0.5439
+[2026-09-25 12:29:33,288] 17 root - INFO - Entered data ingestion method
+[2026-09-25 12:29:34,475] 21 root - INFO - Read raw data with shape (30000, 25)
+[2026-09-25 12:29:34,695] 28 root - INFO - Loaded raw data into SQLite
+[2026-09-25 12:29:34,919] 43 root - INFO - SQL feature engineering complete
+[2026-09-25 12:29:35,050] 51 root - INFO - Train/test split saved
+[2026-09-25 12:29:35,138] 63 root - INFO - Read train data with shape (24000, 27), test data with shape (6000, 27)
+[2026-09-25 12:29:35,146] 22 root - INFO - Cleaned invalid EDUCATION and MARRIAGE codes
+[2026-09-25 12:29:35,149] 22 root - INFO - Cleaned invalid EDUCATION and MARRIAGE codes
+[2026-09-25 12:29:35,163] 36 root - INFO - Feature engineering complete
+[2026-09-25 12:29:35,168] 36 root - INFO - Feature engineering complete
+[2026-09-25 12:29:35,268] 91 root - INFO - Preprocessing pipeline fit on train data and applied to test data
+[2026-09-25 12:29:35,269] 97 root - INFO - Preprocessor output has 39 columns
+[2026-09-25 12:29:37,529] 101 root - INFO - SMOTE applied — before: (24000, 39), after: (37382, 39)
+[2026-09-25 12:29:37,535] 13 root - INFO - Object saved at artifacts/preprocessor.pkl
+[2026-09-25 12:29:37,535] 106 root - INFO - Preprocessor object saved at artifacts/preprocessor.pkl
+[2026-09-25 12:29:37,550] 19 root - INFO - Split train/test arrays into features and target
+[2026-09-25 12:29:37,900] 24 root - INFO - Baseline Logistic Regression PR-AUC: 0.4835
+[2026-09-25 12:30:12,289] 37 root - INFO - Tuned XGBoost PR-AUC: 0.5439, best params: {'scale_pos_weight': 3, 'n_estimators': 200, 'max_depth': 5, 'learning_rate': 0.1}
+[2026-09-25 12:30:12,299] 13 root - INFO - Object saved at artifacts/model.pkl
+[2026-09-25 12:30:12,300] 41 root - INFO - Model saved at artifacts/model.pkl
+[2026-09-25 12:30:12,300] 18 root - INFO - Training pipeline completed successfully, final PR-AUC: 0.5439
+[2026-09-25 12:30:12,358] 17 root - INFO - Confusion matrix:
+[[3180 1493]
+ [ 407  920]]
+[2026-09-25 12:30:12,373] 18 root - INFO - Classification report:
+              precision    recall  f1-score   support
+
+         0.0       0.89      0.68      0.77      4673
+         1.0       0.38      0.69      0.49      1327
+
+    accuracy                           0.68      6000
+   macro avg       0.63      0.69      0.63      6000
+weighted avg       0.77      0.68      0.71      6000
+
+[2026-09-25 12:30:12,377] 19 root - INFO - PR-AUC: 0.5439
+[2026-09-25 12:30:17,080] 32 root - INFO - SHAP summary plot saved
+[2026-09-25 12:30:17,084] 47 root - INFO - Optimal threshold: 0.25, expected profit: 154800
