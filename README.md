@@ -28,7 +28,7 @@ SQL (SQLite, aggregation feature engineering) · Python/Pandas ·
 Scikit-learn · XGBoost · imbalanced-learn (SMOTE) · SHAP · FastAPI
 
 ## Architecture
-'''
+""
 loan-default-risk/
 ├── src/
 │ ├── logger.py, exception.py, utils.py
@@ -37,7 +37,7 @@ loan-default-risk/
 ├── app.py (FastAPI serving layer)
 ├── artifacts/ (generated: model, preprocessor, SHAP plot)
 └── config/config.yaml
-'''
+""
 
 ## How to Run
 
