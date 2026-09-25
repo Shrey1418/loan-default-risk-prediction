@@ -91,3 +91,5 @@ weighted avg       0.77      0.68      0.71      6000
 [2026-09-25 12:30:12,377] 19 root - INFO - PR-AUC: 0.5439
 [2026-09-25 12:30:17,080] 32 root - INFO - SHAP summary plot saved
 [2026-09-25 12:30:17,084] 47 root - INFO - Optimal threshold: 0.25, expected profit: 154800
+[2026-09-25 13:19:05,376] 39 root - INFO - Prediction generated for 1 record(s)
+[2026-09-25 13:19:05,378] 42 root - INFO - API Prediction: prob=0.2832, decison=APPROVE
