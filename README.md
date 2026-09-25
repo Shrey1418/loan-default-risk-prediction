@@ -40,10 +40,11 @@ loan-default-risk/
 ```
 
 ## How to Run
-
+```
 pip install -r requirements.txt
 python -m src.pipeline.train_pipeline
 uvicorn app:app --reload
+```
 
 Visit `http://127.0.0.1:8000/docs` to test the `/predict` endpoint.
 
