@@ -1,9 +1,7 @@
 # Loan Default Risk Prediction
 
 ## Business Problem
-A digital lender needs to decide, per applicant, whether to approve or
-reject a credit line — balancing default losses against lost approval
-revenue — with an explainable decision for regulatory/fair-lending purposes.
+A digital lender receives thousands of credit applications and must decide, for each one, whether to approve or reject the credit line. Approving a customer who later defaults means losing money on unpaid debt. Rejecting a customer who would have repaid means losing profit the lender could have earned. Simple rules like a flat credit-score cutoff ignore most of an applicant's repayment history and treat both kinds of mistake as equal, even though a missed default costs far more than a missed good customer. This project builds a model that predicts each applicant's probability of default from their repayment behavior, billing patterns and credit limit. It then finds the approval threshold that maximizes expected profit under stated cost assumptions ($4,000 loss per missed default, $400 profit per correct approval). Every decision is backed by SHAP explanations, so a rejection can be justified to regulators and applicants under fair-lending expectations.
 
 ## Headline Result
 At a **0.25 probability threshold**, expected portfolio profit is
