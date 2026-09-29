@@ -91,7 +91,7 @@ class DataTransformation:
             logging.info("Preprocessing pipeline fit on train data and applied to test data")
 
             # Capture real output column names — OneHotEncoder expands EDUCATION/MARRIAGE/SEX/
-            # Credit_Limit_Tier into multiple columns (e.g. cat_pipeline__EDUCATION_1,
+            # Credit_Limit_Tier into multiple columns 
             # cat_pipeline__EDUCATION_2, ...), so this list is longer than the input feature list.
             feature_names = preprocessor.get_feature_names_out()
             logging.info(f"Preprocessor output has {len(feature_names)} columns")
